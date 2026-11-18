@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<form id="emailForm">
+  <label for="EMAIL1">email from:</label>
+  <input id="email1" type="text"><br><br>
+
+  <label for="EMAIL2">EMAIL to:</label>
+  <input id="email2" type="text"><br><br>
+
+  <label for="TITLE">TITLE:</label>
+  <input id="subject" type="text"><br><br>
+
+  <textarea id="body" rows="10" cols="40" placeholder="type message..."></textarea><br><br>
+  <input id="btn" type="button" value="send">
+  
+  <input type="reset" value="Clear">
+</form>
+
+<script>
+  
+  const sendBtn = document.getElementById('btn');
+
+  
+  sendBtn.addEventListener('click', function() {
+    
+    const email = document.getElementById('email1').value;
+    const subject = document.getElementById('subject').value;
+    const body = document.getElementById('body').value;
+
+    
+    if (email !== "") { 
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;} 
+  });
+</script>
+</body>
+</html>
